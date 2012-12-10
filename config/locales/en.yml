@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    attributes:
+      contact_form:
+        to: Send to
+        success_message: In-browser response
+        enable_auto_response: Auto-response enabled?
+        auto_response_subject: Subject
+        auto_response_message: Message
+

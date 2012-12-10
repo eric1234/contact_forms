@@ -1,0 +1,23 @@
+= Purpose
+
+Provides a user interface so an admin user can manage the behavior
+of a contact form. This complements rack_mailer providing an interface
+where an admin can set:
+
+* Who get's the e-mail
+* What the success message looks like
+* If there is an auto-response
+* What that auto-response looks like (subject and body)
+
+Although we do handle installing the rack_mailer middleware we do
+NOT handle the actual HTML form. This still needs to be design by
+hand and hosted in your application. If you are needing a mostly static
+page I suggest HighVoltage for hosting the form.
+
+You should POST the form to /contact_forms/<key> where key is the name
+of the form with all non-alphanumeric characters replace with _ and all
+characters downcased.
+
+The interface does not allow new contact forms to be created. The
+developer should create them in their seed file as they develop the
+contact form.

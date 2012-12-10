@@ -1,0 +1,39 @@
+<h1><%= @contact_form %> Response</h1>
+
+<%= form_for @contact_form do |f| %>
+
+  <table class="form">
+    <tr>
+      <th><%= f.label :to %></th>
+      <td><%= f.text_field :to %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :success_message %></th>
+      <td><%= f.text_area :success_message %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div style="float: right; padding-top: 0.5em">
+          <%= f.check_box :enable_auto_response %>
+          <%= f.label :enable_auto_response %><br>
+        </div>
+        <h2>Auto-Response</h2>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :auto_response_subject %></th>
+      <td><%= f.text_field :auto_response_subject %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :auto_response_message %></th>
+      <td><%= f.text_area :auto_response_message %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit 'Save' %>
+        <%= link_to 'Cancel', contact_forms_url %>
+      </td>
+    </tr>
+  </table>
+<% end %>
