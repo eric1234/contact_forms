@@ -1,3 +1,5 @@
+require 'rack_mailer'
+
 module ContactForms
   class Engine < Rails::Engine
     initializer 'contact_forms.mail_config' do
