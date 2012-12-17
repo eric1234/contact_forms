@@ -2,6 +2,6 @@
 
 <ul>
   <% for contact_form in @contact_forms %>
-    <%= link_to contact_form, edit_contact_form_path(contact_form) %>
+    <li><%= link_to contact_form, edit_contact_form_path(contact_form) %></li>
   <% end %>
 </ul>
