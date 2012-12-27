@@ -2,9 +2,11 @@ require 'rack_mailer'
 
 module ContactForms
   class Engine < Rails::Engine
-    initializer 'contact_forms.mail_config' do
+    config.after_initialize do
       Mail.defaults do
-        delivery_method Rails.application.config.action_mailer.delivery_method
+        method = Rails.application.config.action_mailer.delivery_method
+        options = Rails.application.config.action_mailer.send("#{method}_settings".to_sym) || {}
+        delivery_method method, options
       end
     end
   end

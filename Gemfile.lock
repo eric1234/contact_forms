@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    contact_forms (0.0.4)
+    contact_forms (0.0.5)
       enforce_schema_rules
       rack_mailer
       rails (> 3)
