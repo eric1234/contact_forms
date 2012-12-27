@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       contact_form.reload # Check for changes
 
       to contact_form.to
+      from contact_form.to
       subject "Website Message - #{contact_form.name}"
       body "A message was received from the #{contact_form.name} contact form:\n\n"
 
