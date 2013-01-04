@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
       to contact_form.to
       from contact_form.to
-      subject "Website Message - #{contact_form.name}"
-      body "A message was received from the #{contact_form.name} contact form:\n\n"
+      subject contact_form.subject
+      body contact_form.intro.strip+"\n\n"
 
       success_url "/contact_forms/#{contact_form.to_param}"
 

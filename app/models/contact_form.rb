@@ -3,7 +3,7 @@ class ContactForm < ActiveRecord::Base
   alias_attribute :to_s, :name
 
   attr_accessible :to, :success_message, :enable_auto_response,
-    :auto_response_message, :auto_response_subject
+    :auto_response_message, :auto_response_subject, :subject, :intro
 
   def key
     name.underscore.gsub /\W+/, '_'

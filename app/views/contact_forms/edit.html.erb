@@ -4,12 +4,20 @@
 
   <table class="form">
     <tr>
+      <th><%= f.label :success_message %></th>
+      <td><%= f.text_area :success_message %></td>
+    </tr>
+    <tr>
       <th><%= f.label :to %></th>
       <td><%= f.text_field :to %></td>
     </tr>
     <tr>
-      <th><%= f.label :success_message %></th>
-      <td><%= f.text_area :success_message %></td>
+      <th><%= f.label :subject %></th>
+      <td><%= f.text_field :subject %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :intro %></th>
+      <td><%= f.text_area :intro %></td>
     </tr>
     <tr>
       <td colspan="2">

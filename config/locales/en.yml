@@ -3,6 +3,8 @@ en:
     attributes:
       contact_form:
         to: Send to
+        subject: Notification subject line
+        intro: Start notification body with
         success_message: In-browser response
         enable_auto_response: Auto-response enabled?
         auto_response_subject: Subject
