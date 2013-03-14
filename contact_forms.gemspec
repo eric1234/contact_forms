@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'contact_forms'
-  s.version = '0.0.8'
+  s.version = '0.0.9'
   s.homepage = 'https://github.com/eric1234/contact_forms'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
