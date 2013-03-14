@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   ContactForm.all.each do |contact_form|
     match "/contact_forms/#{contact_form.key}" => Rack::Mailer.new {
       contact_form.reload # Check for changes
+      sender = [contact_form.from, contact_form.to].reject(&:blank?).first
 
       to contact_form.to
-      from contact_form.to
+      from sender
       subject contact_form.subject
       body contact_form.intro.strip+"\n\n"
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
       if contact_form.enable_auto_response?
         auto_responder do |params|
           to params['email']
-          from contact_form.to
+          from sender
           subject contact_form.auto_response_subject
           body contact_form.auto_response_message
         end
