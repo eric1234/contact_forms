@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :contact_forms, :only => [:index, :edit, :update, :show]
 
   ContactForm.all.each do |contact_form|
-    match "/contact_forms/#{contact_form.key}" => Rack::Mailer.new {
+    post "/contact_forms/#{contact_form.key}" => Rack::Mailer.new {
       contact_form.reload # Check for changes
       sender = [contact_form.from, contact_form.to].reject(&:blank?).first
 
