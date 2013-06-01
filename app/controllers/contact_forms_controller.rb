@@ -15,7 +15,7 @@ class ContactFormsController < ApplicationController
   def update
     edit
     if @contact_form.update_attributes params[:contact_form]
-      redirect_to contact_forms_url
+      redirect_to [params[:return_to], contact_forms_url].reject(&:blank?).first
       flash[:notice] = 'Contact form response updated'
     else
       render :action => 'edit'

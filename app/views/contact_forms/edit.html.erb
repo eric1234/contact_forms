@@ -1,11 +1,12 @@
-<h1><%= @contact_form %> Response</h1>
-
 <%= form_for @contact_form do |f| %>
+  <%= hidden_field_tag 'return_to', request.referer %>
+
+  <h1><%= @contact_form %> Response</h1>
 
   <table class="form">
     <tr>
       <th><%= f.label :success_message %></th>
-      <td><%= f.text_area :success_message %></td>
+      <td><%= f.text_area :success_message, class: 'rich-text' %></td>
     </tr>
     <tr>
       <th><%= f.label :from %></th>
@@ -43,8 +44,10 @@
     <tr>
       <td></td>
       <td>
-        <%= f.submit 'Save' %>
-        <%= link_to 'Cancel', contact_forms_url %>
+        <div class="actions">
+          <%= f.submit 'Save' %>
+          <%= link_to 'Cancel', contact_forms_url %>
+        </div>
       </td>
     </tr>
   </table>
