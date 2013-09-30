@@ -14,7 +14,13 @@ class ContactFormsController < ApplicationController
 
   def update
     edit
-    if @contact_form.update_attributes params[:contact_form]
+    %I(
+      to from success_message enable_auto_response auto_response_message
+      auto_response_subject subject intro
+    ).each do |field|
+      @contact_form.send "#{field}=", params[:contact_form][field]
+    end
+    if @contact_form.save
       redirect_to [params[:return_to], contact_forms_url].reject(&:blank?).first
       flash[:notice] = 'Contact form response updated'
     else
