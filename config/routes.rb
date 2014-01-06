@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   ContactForm.all.each do |contact_form|
     post "/contact_forms/#{contact_form.key}" => Rack::Mailer.new {
       contact_form.reload # Check for changes
-      sender = [contact_form.from, contact_form.to].reject(&:blank?).first
+      sender = [contact_form.from, contact_form.to.split(',').first].reject(&:blank?).first
 
       to contact_form.to.split(',')
       from sender
