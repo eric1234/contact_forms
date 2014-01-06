@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       contact_form.reload # Check for changes
       sender = [contact_form.from, contact_form.to].reject(&:blank?).first
 
-      to contact_form.to
+      to contact_form.to.split(',')
       from sender
       subject contact_form.subject
       body contact_form.intro.strip+"\n\n"
